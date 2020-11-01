@@ -1,0 +1,41 @@
+var utils = require('../utils')
+
+var swap = utils.swap;
+
+/**
+ * 快速排序(递归\迭代\数组\链表)--递归数组
+ * 李伟
+ * 1078559858@qq.com
+ * 2020年10月31日
+ */
+
+module.exports.sort = function(arr){
+    return quickSort(arr, 0, arr.length-1)
+}
+
+var quickSort = function(arr, p, r){
+    if(p>=r){
+        return;
+    }
+
+    let pivot = partition(arr, p, r)
+    quickSort(arr, p, pivot-1)
+    quickSort(arr, pivot+1, r)
+}
+
+var partition = function(arr, p, r){
+    let j = p
+    var pivot = arr[r]
+
+    for(var i = p; i < r; i++){
+        if(pivot > arr[i]){
+            swap(arr, i , j)
+            j++
+        }
+    }
+
+    arr[r] = arr[j]
+    arr[j] = pivot
+
+    return j
+}

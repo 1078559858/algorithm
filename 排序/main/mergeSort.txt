@@ -1,0 +1,45 @@
+var utils = require('../utils')
+
+var swap = utils.swap;
+var ListNode = utils.ListNode()
+
+/**
+ * 归并排序(递归\迭代\数组\链表)--递归数组
+ * 李伟
+ * 1078559858@qq.com
+ * 2020年10月31日
+ */
+
+module.exports.sort = function(arr){
+    return mergeSort(arr, 0, arr.length-1)
+}
+
+var mergeSort = function(arr, p, r){
+    if(p>=r){
+        return 
+    }
+
+    let q = p + ((r-p)>>1)
+    mergeSort(arr, p, q)
+    mergeSort(arr, q+1, r)
+    mergeArr(arr, p, q, r)
+}
+
+var mergeArr = function(arr, p, q, r){
+    let i = p;
+    let j = q+1;
+    let copyArr = []
+    let k = 0;
+
+    while(i <= q || j <= r){
+        if(j>r || (i<=q && arr[i] > arr[j])){
+            copyArr[k++] = arr[i++]
+        }else{
+            copyArr[k++] = arr[j++]
+        }
+    }
+
+    for(var m = 0; m < k; m++){
+        arr[m+p] = copyArr[m]
+    }
+}

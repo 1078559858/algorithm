@@ -1,0 +1,21 @@
+var utils = require('../utils')
+
+var swap = utils.swap;
+
+module.exports.sort = function(arr){
+    for(var i = 0; i < arr.length; i++){
+        var flag = false;
+        for(var j = 0; j < arr.length -1; j++){
+            if(arr[j] > arr[j+1]){
+                flag = true;
+                swap(arr, j, j+1)
+            }
+        }
+
+        if(!flag){
+            return;
+        }
+    }
+
+    return arr
+}

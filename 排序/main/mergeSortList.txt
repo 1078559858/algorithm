@@ -1,0 +1,49 @@
+var utils = require('../utils')
+
+var ListNode = utils.ListNode()
+
+/**
+ *  递归排序,链表
+ *
+ */
+
+module.exports.sortList = function(head){
+    return mergeSortList(head)
+}
+
+var mergeSortList = function (head) {
+    if (!head || !head.next) {
+        return head
+    }
+
+    let slow = head
+    let fast = head.next.next
+    while (fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+    }
+
+    let right = slow.next
+    slow.next = null
+
+    return mergeList(mergeSortList(head), mergeSortList(right))
+}
+
+var mergeList = function (left, right) {
+    var node = new ListNode()
+    var pre = node
+
+    while (left || right) {
+        if (!right || (left && left.val < right.val)) {
+            node.next = left;
+            left = left.next;
+        } else {
+            node.next = right
+            right = right.next
+        }
+
+        node = node.next
+    }
+
+    return pre.next;
+}

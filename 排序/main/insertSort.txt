@@ -1,0 +1,18 @@
+var utils = require('../utils')
+
+var swap = utils.swap;
+
+module.exports.sort = function (arr) {
+    for (var i = 1; i < arr.length; i++) {
+        var pivot = arr[i]
+        for (var j = i - 1; j >= 0; j--) {
+            if (arr[j] < pivot) {
+                arr[j + 1] = arr[j]
+            } else {
+                break;
+            }
+        }
+
+        arr[j + 1] = pivot
+    }
+}
