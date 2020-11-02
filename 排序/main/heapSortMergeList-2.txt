@@ -1,0 +1,149 @@
+// leetcode 23 题第二种解法
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode[]} lists
+ * @return {ListNode}
+ */
+var mergeKLists = function (lists) {
+  let heap = new Heap()
+  let n = lists.length;
+  while (--n >= 0) {
+    heap.pushList(lists[n])
+  }
+
+  heap.buildHeapLittle()
+
+  while (!heap.isEmpty()) {
+    // 两个解决办法
+    let list = heap.dequeue()
+    let listNext = list.next
+    list.next = null
+    heap.addList(list)
+
+    if (listNext) {
+      heap.enqueue(listNext)
+    }
+  }
+
+  return heap.getListNode()
+};
+
+class Heap {
+  constructor() {
+    this.arr = []
+    this.listNode = new ListNode()
+    this.nextNode = this.listNode
+  }
+
+  pushList(list) {
+    if (list) {
+      this.arr.push(list)
+    }
+  }
+
+  buildHeapLittle() {
+    let n = Math.floor(this.arr.length / 2)
+    while (n >= 0) {
+      this.heapifyLittle(this.arr, this.arr.length, n)
+      n--;
+    }
+  }
+
+  heapifyLittle(arr, len, i) {
+    while (true) {
+      let minPos = i;
+      if (i * 2 + 1 < len && arr[i * 2 + 1].val < arr[minPos].val) {
+        minPos = i * 2 + 1
+      }
+
+      if (i * 2 + 2 < len && arr[i * 2 + 2].val < arr[minPos].val) {
+        minPos = i * 2 + 2;
+      }
+
+      if (minPos === i) {
+        break
+      }
+
+      [arr[i], arr[minPos]] = [arr[minPos], arr[i]]
+      i = minPos
+    }
+  }
+
+  heapifyLittleBottomToUp(arr, len, i) {
+    while (true) {
+      let minPos = Math.round(i / 2) - 1;
+      if (minPos < 0) {
+        return
+      }
+      let t = minPos
+      let t1 = t * 2 + 1
+      let t2 = arr[t * 2 + 1].val
+      let t3 = arr[minPos].val
+      if (t * 2 + 1 < len && arr[t * 2 + 1].val < arr[minPos].val) {
+        minPos = t * 2 + 1
+      }
+
+      if (t * 2 + 2 < len && arr[t * 2 + 2].val < arr[minPos].val) {
+        minPos = t * 2 + 2
+      }
+
+      if (minPos === t) {
+        break;
+      }
+
+      [arr[t], arr[minPos]] = [arr[minPos], arr[t]]
+      i = t
+    }
+  }
+
+  dequeue() {
+    let arr = this.arr
+    let n = this.arr.length - 1;
+    [arr[0], arr[n]] = [arr[n], arr[0]]
+    let list = this.arr.pop()
+    this.heapifyLittle(this.arr, this.arr.length, 0);
+    return list
+  }
+
+  enqueue(list) {
+    let arr = this.arr
+    if (!list) {
+      return false
+    }
+    this.pushList(list)
+    let n = this.arr.length - 1;
+    // [arr[0], arr[n]] = [arr[n], arr[0]]
+    this.heapifyLittleBottomToUp(this.arr, this.arr.length, n)
+
+    return true;
+  }
+
+  isEmpty() {
+    return this.arr.length === 0
+  }
+
+  addList(list) {
+    this.nextNode.next = list
+    this.nextNode = this.nextNode.next
+  }
+
+  getListNode() {
+    return this.listNode.next
+  }
+}
+
+
+let utils = require('./排序/utils')
+let ListNode = utils.ListNode();
+let printList = utils.printList
+
+var mock = [[-8, -7, -7], [-2], [-10, -10, -7], [2]]
+var mockList = utils.createListByArr(mock)
+
+printList(mergeKLists(mockList))
