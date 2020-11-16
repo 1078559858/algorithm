@@ -1,93 +1,61 @@
-let utils = require('./排序/utils')
-let ListNode = utils.ListNode();
-let printList = utils.printList
-
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
  * }
  */
-
-
 /**
- * @param {ListNode[]} lists
- * @return {ListNode}
+ * @param {TreeNode} root
  */
-var mergeKLists = function (lists) {
-    let heap = new Heap()
-    for (var i = 0; i < lists.length; i++) {
-        if (!lists[i]) {
-            continue;
-        }
+var FindElements = function (root) {
+    this._root = root;
 
-        let list = lists[i]
-        heap.createHeap(list)
+    if (root && root.val === -1) {
+        this._root.val = 0
     }
 
-    heap.buildHeapLittle();
-
-    while (heap.arr.length > 0) {
-        let t = heap.arr[0]
-
-        heap.nextNode.next = t;
-        heap.nextNode = heap.nextNode.next;
-
-        if (t.next) {
-            heap.arr[0] = t.next
-            heap.heapifyLittle(heap.arr, heap.arr.length, 0)
-        } else {
-            [heap.arr[0], heap.arr[heap.arr.length - 1]] = [heap.arr[heap.arr.length - 1], heap.arr[0]]
-            heap.arr.pop()
-            heap.heapifyLittle(heap.arr, heap.arr.length, 0)
+    let dfs = function (root) {
+        if (!root) {
+            return
         }
+
+        root.left && (root.left.val = root.val * 2 + 1)
+        root.right && (root.right.val = root.val * 2 + 2)
+        dfs(root.left)
+        dfs(root.right)
     }
 
-    return heap.listNode.next
+    dfs(this._root)
 };
 
-class Heap {
-    constructor(len) {
-        this.arr = []
-        this.listNode = new ListNode()
-        this.nextNode = this.listNode;
-    }
+/** 
+ * @param {number} target
+ * @return {boolean}
+ */
+FindElements.prototype.find = function (target) {
+    let flag = false
 
-    createHeap(list) {
-        this.arr.push(list)
-    }
-
-    buildHeapLittle() {
-        let mid = Math.floor(this.arr.length / 2);
-        while (mid >= 0) {
-            this.heapifyLittle(this.arr, this.arr.length, mid)
-            mid--;
+    let dfs = function (root) {
+        if (!root || flag) {
+            return
         }
-    }
 
-    heapifyLittle(arr, len, i) {
-        while (true) {
-            let maxPos = i;
-            if (i * 2 + 1 < len && arr[i * 2 + 1].val < arr[maxPos].val) {
-                maxPos = i * 2 + 1
-            }
-
-            if (i * 2 + 2 < len && arr[i * 2 + 2].val < arr[maxPos].val) {
-                maxPos = i * 2 + 2;
-            }
-
-            if (maxPos === i) {
-                break;
-            }
-
-            [arr[i], arr[maxPos]] = [arr[maxPos], arr[i]]
-            i = maxPos
+        if (root.val === target) {
+            flag = true
         }
+
+        dfs(root.left)
+        dfs(root.right)
     }
-}
 
-var mock = [[7, 15, 111], []]
-var mockList = utils.createListByArr(mock)
+    dfs(this._root)
 
-printList(mergeKLists(mockList))
+    return flag;
+};
+
+/**
+ * Your FindElements object will be instantiated and called as such:
+ * var obj = new FindElements(root)
+ * var param_1 = obj.find(target)
+ */
