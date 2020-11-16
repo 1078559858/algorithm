@@ -50,3 +50,17 @@ module.exports.createListByArr = function (mock, mockList = []) {
   }
   return mockList
 }
+
+module.exports.createList = function (arr) {
+  let listnode = module.exports.ListNode()
+  let n = arr.length
+  let node = new (module.exports.ListNode())()
+  let nextNode = node;
+  let j = -1
+  while (++j < n) {
+    nextNode.next = new listnode(arr[j])
+    nextNode = nextNode.next
+  }
+
+  return node
+}

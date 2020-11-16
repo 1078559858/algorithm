@@ -2,51 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+
+  <style>
+    #btn {
+      color: yellow !important;
+    }
+  </style>
 </head>
 
 <body>
-    <button id="btn">123</button>
-    <input value="12334" id="ipt" />
-    <script>
-        $(function () {
-            $('#ipt').click(function (e) {
-                alert('123')
-                console.log('xxx')
-                console.log(e.target.value)
-            })
+  <button id="btn" style="color: black">123</button>
+  <input value="12334" id="ipt" />
+  <script>
+    $(function () {
+      $('#ipt').click(function (e) {
+        alert('123')
+        console.log('xxx')
+        console.log(e.target.value)
+      })
 
-            debugger;
+      debugger;
 
-            $('#ipt').trigger('click')
-            console.log($('#ipt').event)
+      $('#ipt').trigger('click')
+      console.log($('#ipt').event)
 
-            var el = document.getElementById('ipt')
-            el.addEventListener('myEvent', function (e) {
-                console.log(e.target.value)
-            })
+      var el = document.getElementById('ipt')
+      el.addEventListener('myEvent', function (e) {
+        console.log(e.target.value)
+      })
 
-            var el = document.getElementById('btn')
-            el.addEventListener('myEvent', function (e) {
-                console.log('myevent')
-            })
+      var el = document.getElementById('btn')
+      el.addEventListener('myEvent', function (e) {
+        console.log('myevent')
+      })
 
 
-            // 创建
-            var evt = document.createEvent("HTMLEvents");
-            // 初始化
-            evt.initEvent("myEvent", false, false);
+      // 创建
+      var evt = document.createEvent("HTMLEvents");
+      // 初始化
+      evt.initEvent("myEvent", false, false);
 
-            console.log(el)
-            window.el = el;
+      console.log(el)
+      window.el = el;
 
-            el.dispatchEvent(evt)
-        })
+      el.dispatchEvent(evt)
+    })
 
-    </script>
+  </script>
 
 </body>
 
