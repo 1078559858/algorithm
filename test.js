@@ -1,16 +1,14 @@
-8. new的实现
-function myNew() {
-  var constructor = [].shift.call(arguments)
-  var obj = object.create({})
-  obj.__proto__ = constructor.prototype;
-  constructor.call(obj, arguments)
-  return obj
+const fruits = [
+  { name: 'apple', color: 'red' },
+  { name: 'strawberry', color: 'red' },
+  { name: 'banana', color: 'yellow' },
+  { name: 'pineapple', color: 'yellow' },
+  { name: 'grape', color: 'purple' },
+  { name: 'plum', color: 'purple' }
+];
+
+function test(color) {
+  return fruits.every(obj => obj.color == color)
 }
 
-function myNew() {
-  var constructor = [].shift.call(arguments)
-  var obj = Object.create({})
-  obj.__proto__ = constructor.prototype;
-  constructor.call(obj, arguments)
-  return obj
-}
+console.log(test('yellow'))
