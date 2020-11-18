@@ -1,0 +1,42 @@
+<!-- flex-grow: 属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。 -->
+<!-- flex-shrink:属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。 -->
+<!-- 然后将flex-basis设置为0，使得容器的剩余空间仅为容器总宽度减去left和right的宽度，不减去center本身内容的宽度， -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .flex-box {
+      display: flex;
+      height: 200px;
+      width: 100%;
+      background: red;
+    }
+
+    .item:nth-child(2) {
+      flex: 1;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-box">
+    <div class="item" style="width:200px;background:yellow">
+      左
+    </div>
+    <div class="item">
+      中
+    </div>
+    <div class="item" style="width:200px;background:yellow">
+      右
+    </div>
+  </div>
+</body>
+
+</html>

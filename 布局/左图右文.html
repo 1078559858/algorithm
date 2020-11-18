@@ -1,0 +1,73 @@
+<!-- 使用兄弟节点height高度100%， 然后text-align：center或者juitify。其他行内元素使用vertical-middle -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+  <title>Document</title>
+  <style>
+    .box {
+      height: 300px;
+      width: 500px;
+      text-align: justify;
+      background: #f5f5f5;
+      border: 1px solid #eee;
+    }
+
+    img {
+      /* 第一步，元素inline-block化，因为图片本身是所以省去。 */
+      /* display:inline-block; */
+      /* 第三步，图片和辅助元素同时垂直居中对齐 */
+      vertical-align: middle;
+    }
+
+    span.assist {
+      /* 第二步，0宽度100%高度的辅助元素 */
+      display: inline-block;
+      height: 100%;
+      /* 第三步，图片和辅助元素同时垂直居中对齐 */
+      vertical-align: middle;
+    }
+
+    span {
+      display: inline-block;
+      width: 100px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span class="txt">123123</span>
+    <img src="https://img1.mukewang.com/user/57a6f85b00013c7202090209-100-100.jpg" alt="">
+    <span class="assist"></span>
+
+
+  </div>
+  <div class="box">
+    <span>单行文字</span>
+    <img src="https://img1.mukewang.com/user/57a6f85b00013c7202090209-40-40.jpg" alt="">
+    <span class="assist"></span>
+  </div>
+  <div class="box">
+    <span>多行文字<br />文字文字文字文字<br />文字文字文字文字</span>
+    <img src="https://img1.mukewang.com/user/57a6f85b00013c7202090209-40-40.jpg" alt="">
+    <span class="assist"></span>
+  </div>
+  <div class="box">
+    <span>因为vertical-align只对inline/inline-block元素起作用，而浮动会让元素block水平化，就不能使用vertical-align对齐了</span>
+    <img src="https://img1.mukewang.com/user/57a6f85b00013c7202090209-40-40.jpg" alt="">
+    <span class="assist"></span>
+  </div>
+
+
+</body>
+
+</html>

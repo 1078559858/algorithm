@@ -1,0 +1,57 @@
+<!-- 双飞翼布局：对圣杯布局（使用相对定位，对以后布局有局限性）的改进，消除相对定位布局
+原理：主体元素上设置左右边距，预留两翼位置。左右两栏使用浮动和负边距归位，消除相对定位。 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      /*padding-left:150px;*/
+      /*padding-right:190px;*/
+    }
+
+    .main-wrap {
+      width: 100%;
+      float: left;
+    }
+
+    .main {
+      margin-left: 150px;
+      margin-right: 190px;
+      background-color: yellow;
+    }
+
+    .left {
+      float: left;
+      width: 150px;
+      margin-left: -100%;
+      background-color: green;
+      /*position: relative;*/
+      /*left:-150px;*/
+    }
+
+    .right {
+      float: left;
+      width: 190px;
+      margin-left: -190px;
+      background-color: aliceblue;
+      /*position:relative;*/
+      /*right:-190px;*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-wrap">
+    <div class="main">main</div>
+  </div>
+  <div class="left">left</div>
+  <div class="right">right</div>
+</body>
+
+</html>

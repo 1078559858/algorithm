@@ -1,0 +1,55 @@
+<!-- padding+margin+相对定位, 代码符合审美. -->
+
+<!-- 要求：三列布局；中间主体内容前置，且宽度自适应；两边内容定宽
+好处：重要的内容放在文档流前面可以优先渲染
+原理：利用相对定位、浮动、负边距布局，而不添加额外标签 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      padding-left: 150px;
+      padding-right: 190px;
+    }
+
+    .main {
+      float: left;
+      width: 100%;
+      background: blue;
+    }
+
+    .left {
+      float: left;
+      width: 190px;
+      margin-left: -100%;
+      position: relative;
+      left: -150px;
+      background: yellow;
+    }
+
+    .right {
+      float: left;
+      width: 190px;
+      margin-left: -190px;
+      position: relative;
+      right: -190px;
+      background: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main">main</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+
+</html>
