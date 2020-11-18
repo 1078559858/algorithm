@@ -1,8 +1,8 @@
-# algorithm
-算法练习笔记, 包含各种utils函数,方便测试.  并记录解题记录.
-
-ps: 大部分代码文件使用txt结尾,为了解除对代码编辑器的依赖,练习一遍写出bug free 代码
-每一个分支,都有固定的思路,然后再加以练习.
+# title
+算法练习、js实现练习、promise练习
 
 # 待办
 把常见算法和数据结构过一遍后，题目要再做一遍，优化做到最优解。
+
+# 其他
+## [45道promise练习题](https://mp.weixin.qq.com/s?__biz=MzU3OTg0Njc0]MA==&mid=2247483869&idx=1&sn=3a467476c8b8be023659636b8dded7d6&chksm=fd5e96e6ca291ff0b3f0f3d7768ccafa754e5bf8f723e309d9971b6242ee0752fafeab7437c9&mpshare=1&scene=1&srcid=1020CCy9nZJpin4C3trt2jo2&sharer_sharetime=1603133835359&sharer_shareid=bad323dd2184d8c4c05bdb3ef8fafd34&key=f3ad4f79e700da4e338a041b22c63282621969e28e5afc9efd1c365e7f3fd9c3b4bfb5a0b3ec291484bd6b77adbe69d7b1e37f9f1a44782720ae1595f0507e0942e682d3c065b32990b3e1eaf4fb8b91eccb901ae313dea028be2b888b93cf1b047b3f445abe66519a331bbe8c2cf95c408860a03d8ee0ab9a48b35d5eae6a9a&ascene=1&uin=MTY3MTYxOTg2Mg%3D%3D&devicetype=Windows+10+x64&version=6300002f&lang=zh_CN&exportkey=AR%2FTsPVfefjyg4NI3fdJGQg%3D&pass_ticket=yqavzN211WPqcwuAyMK4oFpabv4Uec2xd5aGDsDujxSq6rOzM%2Bky2r%2FVvBqDfN6r&wx_header=0)
