@@ -1,0 +1,92 @@
+<!-- border 一像素 下方线条粗 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .retina-border {
+      width: 100px;
+      position: relative;
+    }
+
+    .retina1-border {
+      width: 100px;
+      position: relative;
+    }
+
+    .retina-border::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: left top;
+      /* box-sizing: border-box; */
+      border: 1px solid #000;
+      border-radius: 4px;
+
+
+
+    }
+
+    .retina1-border::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      background: #000;
+      width: 100%;
+      height: 1px;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+
+    .hairlines li {
+      position: relative;
+      margin-bottom: 20px;
+      border: none;
+      /* padding: 10px; */
+    }
+
+    .hairlines li:before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: left top;
+      /* box-sizing: border-box; */
+      border: 1px solid #000;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="retina-border">
+    123123
+  </div>
+
+
+  <p>隔离隔离隔离</p>
+  <div class="retina1-border">
+    123123
+  </div>
+  <p>隔离隔离隔离</p>
+  <div class="hairlines">
+    <li>123</li>
+  </div>
+  <p>隔离隔离隔离</p>
+
+</body>
+
+</html>
