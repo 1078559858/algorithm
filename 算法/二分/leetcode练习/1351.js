@@ -1,6 +1,7 @@
 // 1351. 统计有序矩阵中的负数, 有多种解法.
 // 因为左右上下都是递减的, 所以算法的实现应该是 * 2的, 一共有8种解法. 
-// 其实根据左右和上下两个方向,可以用二分查找法优化一下mlogn和nlogm两种, 复杂度是
+// 其实根据左右和上下两个方向,可以用二分查找法优化一下mlogn和nlogm两种, 复杂度是logn*logm
+// 但是其实,第二行是错误的, 没有第八种解法(mlogm),只有第七种解法(nlogn). 第八种解法的复杂度和第五种解法是一致的.
 
 // 方法1: 暴力法, 复杂度O(mn)或者O(nm)
 var countNegatives1 = function (grid) {
@@ -204,7 +205,7 @@ var countNegatives7 = function (grid) {
     return solve(grid, 0, m, 0, n)
 }
 
-// 方法8: 复杂度nlogn
+// 方法8: 复杂度mlogn
 var countNegatives = function (grid) {
     if (!grid.length) {
         return 0
