@@ -7,10 +7,11 @@
 // promise异步限制并发图片的实现
 
 //https://zhuanlan.zhihu.com/p/102017798
-https://zhuanlan.zhihu.com/p/25178630
-https://blog.csdn.net/Yun__shen/article/details/104525021
-https://segmentfault.com/a/1190000020872602
-https://imweb.io/topic/5bbc264b6477d81e668cc930
+// https://zhuanlan.zhihu.com/p/25178630
+// https://blog.csdn.net/Yun__shen/article/details/104525021
+// https://segmentfault.com/a/1190000020872602
+// https://imweb.io/topic/5bbc264b6477d81e668cc930
+// https://github.com/ConardLi/awesome-coding-js/blob/master/JavaScript/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0promise.md
 
 const PENDING = 'pending';
 const FULEILLED = 'fulfilled';
@@ -69,20 +70,20 @@ myPromise.prototype.then = function (onFulfilled, onReject) {
         this.onFulfilledCallback.push(() => {
           setTimeout(() => {
             try {
-              const x = onFulfilled(this.reason);
+              const x = onFulfilled(this.value);
               resolve(x);
             } catch (error) {
-              reject(x)
+              reject(error)
             }
           }, 0);
         })
         this.onRejectCallback.push(() => {
           setTimeout(() => {
             try {
-              const x = onReject(this.value);
+              const x = onReject(this.reason);
               resolve(x);
             } catch (error) {
-              reject(x)
+              reject(error)
             }
           }, 0);
         })
@@ -90,22 +91,23 @@ myPromise.prototype.then = function (onFulfilled, onReject) {
       case FULEILLED:
         setTimeout(() => {
           try {
-            const x = onFulfilled(this.value)
-            resolve(x)
-          } catch (error) {
-            reject(x)
+            const x = onFulfilled(this.value);
+            resolve(x);
+          } catch (reason) {
+            reject(reason);
           }
         }, 0);
         break;
       case REJECT:
         setTimeout(() => {
           try {
-            const x = onReject(this.reason);
-            resolve(x)
-          } catch (error) {
-            reject(x)
+            const x = onRejected(this.reason);
+            resolve(x);
+          } catch (reason) {
+            reject(reason);
           }
         }, 0);
+        break;
         break;
       default:
         break;
