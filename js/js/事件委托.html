@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+  <title>Document</title>
+  <style>
+    ul {
+      border: 1px solid blue;
+      width: 100px;
+      height: 100px;
+      ;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="ul">
+    <li>1</li>
+    <li>2</li>
+  </ul>
+  <button>btn</button>
+
+  <script>
+    let count = 2;
+    var ul = document.getElementById('ul');
+    console.log(ul)
+    ul.addEventListener('click', function (e) {
+      e = e || window.event; // 兼容ie678， 事件为空，在window上
+      let target = e.target;
+      if (target.tagName.toLocaleLowerCase() === 'li') {
+        alert(target.innerHTML)
+      } else {
+        alert(e.target.innerHTML)
+      }
+    }, true)
+
+    var btn = document.getElementsByTagName('button')[0];
+    btn.addEventListener('click', function (e) {
+      let li = document.createElement('li');
+      li.innerHTML = ++count + '';
+      ul.appendChild(li)
+    }, false)
+
+    $(function () {
+      let abc = 222
+      $('ul').on('click', 'li', abc, function (e, ) {
+        console.log(e.data)
+      })
+
+      // jQuery 提供了两种方式来阻止事件冒泡。
+
+      // 方式一：event.stopPropagation();
+
+      // $("#div1").mousedown(function (event) {
+      //   event.stopPropagation();
+      // });
+
+      // 方式二：return false;
+
+      // $("#div1").mousedown(function (event) {
+      //   return false;
+      // });
+    })
+  </script>
+</body>
+
+</html>
