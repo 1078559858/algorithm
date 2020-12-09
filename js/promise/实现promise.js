@@ -155,19 +155,42 @@ myPromise.prototype.race = function (promises) {
   })
 }
 
+myPromise.prototype.catch = function (onReject) {
+  return this.then(null, onReject)
+}
 
 let a = new myPromise((resolve, reject) => {
   setTimeout(() => {
-    resolve(111)
+    reject(111)
   }, 0);
 })
 
-a.then(res => {
+let c = a.then(res => {
   console.log(res)
 })
 
-a.then(res => {
-  console.log(res + '  1')
+let d = c.then(res => {
+  console.log(res)
 })
+
+let e = c.then(res => {
+  console.log(res)
+})
+
+let f = e.then(res => {
+  console.log(res)
+})
+
+setTimeout(() => {
+  console.log('c is:')
+  console.log(c)
+  console.log(a)
+
+}, 100);
+
+
+// a.then(res => {
+//   console.log(res + '  1')
+// })
 
 
