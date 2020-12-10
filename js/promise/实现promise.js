@@ -24,11 +24,22 @@ function myPromise(execurtor) {
   this.onFulfilledCallback = [];
   this.onRejectCallback = [];
 
-  const resolve = (value) => {
-    if (this.state === PENDING) {
-      this.value = value;
-      this.state = FULEILLED;
-      this.onFulfilledCallback.forEach(fn => {
+  let _this = this;
+  // 处理异步
+  this.resolve = function (value) {
+    if (value && (typeof value === 'object' || typeof value === 'function')) {
+      var then = value.then;
+      if (typeof then === 'function') {
+
+        value.then(_this.resolve);
+        return;
+      }
+    }
+
+    if (_this.state === PENDING) {
+      _this.value = value;
+      _this.state = FULEILLED;
+      _this.onFulfilledCallback.forEach(fn => {
         fn()
       })
     }
@@ -45,7 +56,7 @@ function myPromise(execurtor) {
   }
 
   try {
-    execurtor(resolve, reject)
+    execurtor(this.resolve, reject)
   } catch (error) {
     reject(error)
   }
@@ -139,7 +150,7 @@ myPromise.prototype.all = function (promises) {
   })
 }
 
-myPromise.prototype.race = function (promises) {
+myPromise.race = function (promises) {
   return new Promise((resolve, reject) => {
     if (promises.length === 0) {
       resolve([]);
@@ -155,42 +166,8 @@ myPromise.prototype.race = function (promises) {
   })
 }
 
-myPromise.prototype.catch = function (onReject) {
+myPromise.catch = function (onReject) {
   return this.then(null, onReject)
 }
 
-let a = new myPromise((resolve, reject) => {
-  setTimeout(() => {
-    reject(111)
-  }, 0);
-})
-
-let c = a.then(res => {
-  console.log(res)
-})
-
-let d = c.then(res => {
-  console.log(res)
-})
-
-let e = c.then(res => {
-  console.log(res)
-})
-
-let f = e.then(res => {
-  console.log(res)
-})
-
-setTimeout(() => {
-  console.log('c is:')
-  console.log(c)
-  console.log(a)
-
-}, 100);
-
-
-// a.then(res => {
-//   console.log(res + '  1')
-// })
-
-
+exports.myPromise = myPromise;
