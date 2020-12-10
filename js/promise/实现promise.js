@@ -6,12 +6,14 @@
 // 分别node环境和javascript环境的测试.
 // promise异步限制并发图片的实现
 
-//https://zhuanlan.zhihu.com/p/102017798
-// https://zhuanlan.zhihu.com/p/25178630
-// https://blog.csdn.net/Yun__shen/article/details/104525021
-// https://segmentfault.com/a/1190000020872602
-// https://imweb.io/topic/5bbc264b6477d81e668cc930
-// https://github.com/ConardLi/awesome-coding-js/blob/master/JavaScript/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0promise.md
+// 技巧   第一个实现的非常好
+// 1.  then函数中，return this实现值穿透。 // https://blog.csdn.net/Yun__shen/article/details/104525021
+// 2. 无限循环判断，以及then异步。// https://zhuanlan.zhihu.com/p/25178630
+// 3. es6实现（总觉得有问题，没有settimeout）//https://zhuanlan.zhihu.com/p/102017798
+// 4. 和2一样的实现 // https://segmentfault.com/a/1190000020872602
+// 5. // https://imweb.io/topic/5bbc264b6477d81e668cc930
+// 6. // https://github.com/ConardLi/awesome-coding-js/blob/master/JavaScript/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0promise.md
+
 
 const PENDING = 'pending';
 const FULEILLED = 'fulfilled';
@@ -30,7 +32,6 @@ function myPromise(execurtor) {
     if (value && (typeof value === 'object' || typeof value === 'function')) {
       var then = value.then;
       if (typeof then === 'function') {
-
         value.then(_this.resolve);
         return;
       }
@@ -69,9 +70,11 @@ myPromise.prototype.then = function (onFulfilled, onReject) {
     }
   }
 
+  // reject实现
   if (typeof onReject !== 'function') {
     onReject = function (value) {
-      return value
+      throw value
+      // return value;
     }
   }
 
@@ -128,7 +131,7 @@ myPromise.prototype.then = function (onFulfilled, onReject) {
   return promise2;
 }
 
-myPromise.prototype.all = function (promises) {
+myPromise.all = function (promises) {
   return new Promise((resolve, reject) => {
     if (promises.length === 0) {
       resolve([])
@@ -166,7 +169,7 @@ myPromise.race = function (promises) {
   })
 }
 
-myPromise.catch = function (onReject) {
+myPromise.prototype.catch = function (onReject) {
   return this.then(null, onReject)
 }
 
