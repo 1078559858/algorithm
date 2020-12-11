@@ -57,8 +57,12 @@ function limitLoad(arr, handler, limit) {
   })
 
   return promises.reduce((total, cur) => {
-    return total.then(Promise.race(sequence))
-      .then(idx => t[idx] = handler(cur).then(() => idx))
+    return total.then(() => {
+      return Promise.race(sequence)
+    })
+      .then(idx => {
+        t[idx] = handler(cur).then(() => idx)
+      })
       .catch(error => Promise.reject(error))
   }, Promise.resolve()).then(() => {
     return Promise.all(res)
