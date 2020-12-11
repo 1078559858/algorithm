@@ -15,6 +15,15 @@
 // 6. // https://github.com/ConardLi/awesome-coding-js/blob/master/JavaScript/%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0promise.md
 
 
+// 值穿透， 当前的逻辑已经实现了，不用return this。 
+// Promise.prototype.then = function (onFulfilled, onRejected) {
+//   if (!isFunction(onFulfilled) && this.state === FULFILLED ||
+//     !isFunction(onRejected) && this.state === REJECTED) {
+//     return this;
+//   }
+//   ...
+// };
+
 const PENDING = 'pending';
 const FULEILLED = 'fulfilled';
 const REJECT = 'reject';
@@ -171,6 +180,44 @@ myPromise.race = function (promises) {
 
 myPromise.prototype.catch = function (onReject) {
   return this.then(null, onReject)
+}
+
+myPromise.prototype.finally = function (onDone) {
+  //return this.then(onDone, onDone); // 简洁模式，但是有状态，ondone有参数。
+
+  if (typeof onDone !== 'function') {
+    return this.then()
+  }
+
+  return this.then(value => Promise.resolve(() => onDone()).then(() => value)
+    , reason => Promise.reject(onDone()).then(() => { throw reason }))
+}
+
+myPromise.resolve = function (value) {
+  if (value && value instanceof Promise) {
+    return value;
+  } else if (value && typeof value === 'object' && typeof value.then === 'function') {
+    let then = value.then;
+    return new Promise(resolve => {
+      then(resolve);
+    });
+
+  } else if (value) {
+    return new Promise(resolve => resolve(value));
+  } else {
+    return new Promise(resolve => resolve());
+  }
+}
+
+myPromise.reject = function (value) {
+  if (value && typeof value === 'object' && typeof value.then === 'function') {
+    let then = value.then;
+    return new Promise((resolve, reject) => {
+      then(reject);
+    });
+  } else {
+    return new Promise((resolve, reject) => reject(value));
+  }
 }
 
 exports.myPromise = myPromise;
