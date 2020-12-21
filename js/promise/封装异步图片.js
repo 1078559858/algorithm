@@ -34,7 +34,6 @@ function limitLoad(urls, handler, limit) {
     })
   })
 
-
   return sequence.reduce((pCollect, url) => {
     return pCollect.then(() => {
       return Promise.race(promises);
@@ -57,14 +56,9 @@ function limitLoad(arr, handler, limit) {
   })
 
   return promises.reduce((total, cur) => {
-    return total.then(() => {
-      return Promise.race(sequence)
-    })
-      .then(idx => {
-        t[idx] = handler(cur).then(() => idx)
-      })
+    return total
+      .then(() => Promise.race(sequence))
+      .then(idx => t[idx] = handler(cur).then(() => idx))
       .catch(error => Promise.reject(error))
-  }, Promise.resolve()).then(() => {
-    return Promise.all(res)
-  })
+  }, Promise.resolve()).then(() => Promise.all(res))
 }
