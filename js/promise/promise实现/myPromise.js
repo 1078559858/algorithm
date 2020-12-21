@@ -164,7 +164,25 @@ class MyPromise {
   }
 
   static all(arr) {
-
+    return new Promise((r, j) => {
+      if (arr.length === 0) {
+        r([])
+      } else {
+        let count = 0;
+        let res = new Array(arr.length);
+        arr.forEach((promise, idx) => {
+          promise.then((value) => {
+            res[idx] = value;
+            count++;
+            if (count === arr.length) {
+              r([])
+            }
+          }).catch(err => {
+            j(err)
+          })
+        })
+      }
+    })
   }
 
   static reject(value) {
