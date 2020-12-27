@@ -191,7 +191,7 @@ class MyPromise {
     })
   }
 
-  static resove(value) {
+  static resolve(value) {
     if (value instanceof MyPromise) {
       return value
     }
