@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <input />
+  <span></span>
+
+  <!-- // 简单实现 -->
+  <script>
+    let obj = {}
+    let t = ''
+
+    Object.defineProperty(obj, 'txt', {
+      get() {
+        return t;
+      },
+      set(newValue, oldValue) {
+        document.getElementsByTagName('input')[0].value = newValue;
+        document.getElementsByTagName('span')[0].innerHTML = newValue;
+        t = newValue;
+      }
+    })
+
+    document.getElementsByTagName('input')[0].addEventListener('keyup', function (e) {
+      obj.txt = e.target.value;
+    })
+
+  </script>
+
+  <!-- 模拟Vue -->
+  <script>
+    let obj = { val: 1 };
+
+    class Dep {
+      constructor() {
+        this.deps = []
+      }
+
+      add(target) {
+        this.deps.push(target)
+      }
+
+      notifi() {
+        this.deps.forEach(watcher => watcher.update())
+      }
+    }
+
+    class Watcher {
+      constructor(vm, key, cb) {
+        this.vm = vm;
+        this.key = key;
+        this.cb = cb;
+
+        Dep = this;
+
+        this.vm[this.key];
+
+        Dep = null;
+      }
+
+      update() {
+        this.cb.call(this.vm, this.vm[this.key])
+      }
+
+    }
+
+    // create阶段，绑定。 
+    // mounted阶段： new Watcher()执行get函数，后续再修改的时候会触发set函数。
+    function Observe(obj, key, value) {
+      let dep = new Dep()
+
+      Object.defineProperty(obj, key, {
+        get() {
+          Dep.target && dep.add(Dep.target)
+          return obj.key;
+        },
+        set(newVal, oldVal) {
+          if (newVal === oldVal) {
+            return;
+          }
+
+          value = newVal;
+          dep.notify();
+        }
+      })
+    }
+  </script>
+
+  // proxy
+  <script>
+
+    function defineReactive(data) {
+      // let map = new Dep()
+
+      return new Proxy(data, {
+        get(obj, prop) {
+          // Dep.target && dep.push(Dep.target)
+          return Reflect.get(obj, prop)
+        },
+        set(obj, prop, newValue) {
+          Reflect.set(obj, prop, newValue);
+          // dep.notifiy();
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>
