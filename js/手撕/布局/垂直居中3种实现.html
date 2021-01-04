@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /*
+      flex: 默认： 0 1 auto; flex-grow:0, flex-shrink:1; flex-basis: auto;
+      flex：none === flex:0 0 auto 根据自身设置尺寸，不缩放，不伸长。
+      flex: auto === flex: 1 1 auto 根据自身设置尺寸，同比缩放，伸
+      flex: inital === flex: 0 1 auto 会缩短，不伸长。 
+      flex： 1 === flex: 1 1 0;
+      flex:1和flex:auto; 的区别就是flex-basis, flex-basis为0：则覆盖元素的width
+
+    */
+
+    /* 这是text-align和vertical-align，还有两种是绝对定位和flex布局 */
+    /* #outer {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+
+      text-align: center;
+    }
+
+    #inner {
+      width: 10px;
+      height: 10px;
+      border: 1px solid green;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #brother {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    } */
+  </style>
+</head>
+
+<body>
+  <div id="outer">
+    <div id="inner">11111111111111111111111111</div>
+    <div id="brother">222222</div>
+
+  </div>
+
+
+</body>
+
+</html>

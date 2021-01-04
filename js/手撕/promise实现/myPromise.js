@@ -175,7 +175,7 @@ class MyPromise {
             res[idx] = value;
             count++;
             if (count === arr.length) {
-              r([])
+              r(res)
             }
           }).catch(err => {
             j(err)
@@ -198,29 +198,6 @@ class MyPromise {
 
     return new MyPromise((r, j) => {
       r(value)
-    })
-  }
-
-  static all(arr) {
-    return new Promise((r, j) => {
-      if (arr.length === 0) {
-        r([])
-      } else {
-        let count = 0;
-        let res = new Array(arr.length);
-
-        arr.forEach((promise, idx) => {
-          promise.then(value => {
-            res[idx] = value;
-            count++;
-            if (count === res.length) {
-              r(res)
-            }
-          }, reason => {
-            j(reason)
-          })
-        })
-      }
     })
   }
 }

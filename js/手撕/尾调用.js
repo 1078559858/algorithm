@@ -14,6 +14,7 @@ function jump(f) {
 
   return f;
 }
+
 // var sum = tco(function(){}); sum(1,1000)
 function tco(f) {
   let value;
@@ -30,5 +31,45 @@ function tco(f) {
       active = false;
       return value;
     }
+  }
+}
+
+function tco(f) {
+  let active = false;
+  let value;
+  let arr = []
+
+  return function fn(...args) {
+    arr.push(arguments);
+    if (!active) {
+      active = true;
+      while (arr.length) {
+        value = f.apply(this, arr.pop())
+      }
+
+      active = false;
+      return value;
+    }
+  }
+}
+
+function tco(fn) {
+
+  let arr = []
+  let active = true;
+  let value;
+
+  return function fn(...args) {
+    arr.push(args);
+    if (active) {
+      active = false;
+      while (arr.length) {
+        value = fn.apply(tis, arr.pop())
+      }
+
+      active = true;
+    }
+
+    return value;
   }
 }
