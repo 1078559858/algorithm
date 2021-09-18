@@ -14,3 +14,6 @@ nginx常用文件夹：
 > 1）sudo systemctl start nginx
 2）sudo systemctl restart nginx
 3）sudo systemctl stop nginx
+
+# 2.在工程中配置sftp.json
+  在工程中，快捷键 ⌘+⇧+P 召唤指令窗口并输入 sftp，就会在当前工程的 .vscode 文件夹下生成 sftp.json 文件，有几个重点字段是需要配置的：host, username, privateKeyPath, remotePath。
