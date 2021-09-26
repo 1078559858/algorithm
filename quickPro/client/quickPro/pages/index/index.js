@@ -4,7 +4,12 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '随机数',
+    random:{
+      min:0,
+      max:100,
+      value:null
+    },
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -44,5 +49,39 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  setRandomMin(e){
+    this.setData({
+      "random.min": e.detail.value,
+    })
+  },
+  setRandomMax(e){
+    this.setData({
+      "random.max": e.detail.value,
+    })
+  },
+  clickSure(){
+    var maxNum = this.data.random.max;
+    var minNum = this.data.random.min;
+
+    if(minNum > maxNum){
+      wx.showToast({
+        title: '最大值比最小值大，请重新输入！',
+        icon: 'none',
+        duration: 1000,
+        mask:true
+      })
+      return;
+    }
+    else if(maxNum === minNum){
+      this.setData({
+        "random.value": maxNum
+      })
+    }
+    else{
+      this.setData({
+        "random.value" : parseInt(Math.random()*(maxNum-minNum+1)+minNum,10),
+      })
+    }
   }
 })
