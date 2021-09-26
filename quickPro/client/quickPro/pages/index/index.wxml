@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
+  <!-- <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
@@ -16,8 +16,21 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-  </view>
+  </view> -->
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+  </view>
+  
+  <view class="f-l-c f-dir-c">
+    <view class="f-l-c">
+      <button class="random-btn" size>随机数范围</button>
+      <input class="r-input" type="number" maxlength="10" value="{{random.min}}"  bindinput="setRandomMin" placeholder="最小值"/>
+      -
+      <input class="r-input" type="number" maxlength="10" value="{{random.max}}"  bindinput="setRandomMax" placeholder="最大值"/>
+    </view>
+    <view class="f--c">
+      <button class="random-btn"  bindtap="clickSure">确认</button>
+      <input class="random-ipt" type="number" value="{{random.value}}" placeholder="点击确定出现随机数"/>
+    </view>
   </view>
 </view>

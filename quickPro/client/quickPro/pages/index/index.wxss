@@ -15,5 +15,55 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20px;
+}
+
+.random-btn{
+  padding: 0px;
+  margin: 0px !important;
+  width: 70px !important;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  display: inline-block;
+  background-color: #aaa;
+}
+
+.random-ipt{
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.f-c-c{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.f-l-c{
+  display: flex;
+  justify-content:flex-start;
+  align-content: center;
+}
+
+.f--c{
+  display: flex;
+  justify-self: start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  /* justify-content: center; */
+}
+
+.f-dir-c{
+  flex-direction: column;
+}
+
+.r-input{
+  width: 80px;
+  margin-left: 10px;
+  width: 120rpx;
+  font-size: 12px;
 }
