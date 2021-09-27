@@ -28,6 +28,8 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+
+    wx.showShareMenu();// 开启分享
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -82,6 +84,15 @@ Page({
       this.setData({
         "random.value" : parseInt(Math.random()*(maxNum-minNum+1)+minNum,10),
       })
+    }
+
+    app.globalData.randomCurr = this.data.random.value;
+  },
+  onShareAppMessage:(res) => {
+    let str = `我随到了数字${app.globalData.randomCurr},快来来寻找你的随机数吧！`
+    return {
+      title:str,
+      imageUrl:'/pages/share/shuzi.png'
     }
   }
 })
