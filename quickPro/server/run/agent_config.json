@@ -8,11 +8,13 @@
       "logValue": true
     },
     "security": {
-      "domainWhiteList": [],
+      "domainWhiteList": [
+        "http://localhost:8000"
+      ],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
-        "enable": true,
+        "enable": false,
         "type": "ctoken",
         "ignoreJSON": false,
         "useSession": false,
@@ -112,10 +114,21 @@
       "fields": 10,
       "fileSize": "10mb",
       "files": 10,
-      "fileExtensions": [],
+      "fileExtensions": [
+        ".apk",
+        ".pptx",
+        ".docx",
+        ".csv",
+        ".doc",
+        ".ppt",
+        ".pdf",
+        ".pages",
+        ".wav",
+        ".mov"
+      ],
       "whitelist": null,
       "allowArrayField": false,
-      "tmpdir": "/var/folders/jk/klfpxss5533g_fb07wxfs72w0000gp/T/egg-multipart-tmp/quick-pro-server",
+      "tmpdir": "/var/folders/jk/klfpxss5533g_fb07wxfs72w0000gp/T/egg-multipart-tmp/egg-RESTfulAPI",
       "cleanSchedule": {
         "cron": "0 30 4 * * *",
         "disable": false
@@ -153,9 +166,30 @@
       "defaultViewEngine": "",
       "mapping": {}
     },
+    "bcrypt": {
+      "saltRounds": 10
+    },
+    "mongoose": {
+      "url": "mongodb://127.0.0.1:27017/egg_x",
+      "options": {
+        "useMongoClient": true,
+        "autoReconnect": true,
+        "reconnectTries": 1.7976931348623157e+308,
+        "bufferMaxEntries": 0
+      },
+      "loadModel": true,
+      "app": true,
+      "agent": false
+    },
+    "jwt": {
+      "secret": "<String len: 8>",
+      "enable": true,
+      "match": "/jwt"
+    },
+    "cors": {},
     "env": "local",
-    "name": "quick-pro-server",
-    "keys": "<String len: 9>",
+    "name": "egg-RESTfulAPI",
+    "keys": "<String len: 33>",
     "cookies": {},
     "proxy": false,
     "maxIpsCount": 0,
@@ -164,21 +198,59 @@
     "ipHeaders": "x-forwarded-for",
     "hostHeaders": "",
     "pkg": {
-      "name": "quick-pro-server",
+      "name": "egg-RESTfulAPI",
       "version": "1.0.0",
-      "description": "",
-      "scripts": {
-        "dev": "egg-bin dev",
-        "test": "echo \"Error: no test specified\" && exit 1"
-      },
-      "author": "liwei",
-      "license": "ISC",
+      "description": "A optimized Node.js RESTful API Server Template based on egg.js!",
+      "private": true,
       "dependencies": {
-        "egg": "^2.30.0"
+        "await-stream-ready": "^1.0.1",
+        "egg": "^2.0.0",
+        "egg-bcrypt": "^1.0.0",
+        "egg-cors": "^2.0.0",
+        "egg-jwt": "^2.2.0",
+        "egg-mongoose": "^2.1.1",
+        "egg-scripts": "^2.1.0",
+        "egg-validate": "^1.0.0",
+        "image-downloader": "^3.3.0",
+        "mocha": "^4.0.1",
+        "moment": "^2.20.1",
+        "stream-to-array": "^2.3.0",
+        "stream-wormhole": "^1.0.3"
       },
       "devDependencies": {
-        "egg-bin": "^4.16.4"
-      }
+        "autod": "^3.0.1",
+        "autod-egg": "^1.0.0",
+        "egg-bin": "^4.3.5",
+        "egg-ci": "^1.8.0",
+        "egg-mock": "^3.13.0",
+        "eslint": "^4.11.0",
+        "eslint-config-egg": "^5.1.0",
+        "webstorm-disable-index": "^1.2.0"
+      },
+      "engines": {
+        "node": ">=8.9.0"
+      },
+      "scripts": {
+        "start": "egg-scripts start --daemon",
+        "stop": "egg-scripts stop",
+        "dev": "egg-bin dev",
+        "debug": "egg-bin debug",
+        "test": "npm run lint -- --fix && npm run test-local",
+        "test-local": "egg-bin test",
+        "cov": "egg-bin cov",
+        "lint": "eslint .",
+        "ci": "npm run lint && npm run cov",
+        "autod": "autod"
+      },
+      "ci": {
+        "version": "8"
+      },
+      "repository": {
+        "type": "git",
+        "url": ""
+      },
+      "author": "lpx@4-m.cn",
+      "license": "MIT"
     },
     "baseDir": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server",
     "HOME": "/Users/huajiao",
@@ -214,7 +286,7 @@
       "onerror": "<Function onerror>"
     },
     "logger": {
-      "dir": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/logs/quick-pro-server",
+      "dir": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/logs/egg-RESTfulAPI",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -222,7 +294,7 @@
       "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
-      "appLogName": "quick-pro-server-web.log",
+      "appLogName": "egg-RESTfulAPI-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
@@ -277,9 +349,12 @@
       "responseTimeout": 60000
     },
     "onClientError": null,
+    "middleware": [
+      "errorHandler"
+    ],
     "coreMiddlewares": "~config~coreMiddleware",
-    "appMiddlewares": [],
-    "appMiddleware": "~config~appMiddlewares"
+    "appMiddlewares": "~config~middleware",
+    "appMiddleware": "~config~middleware"
   },
   "plugins": {
     "onerror": {
@@ -427,6 +502,61 @@
       "from": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/plugin.js",
       "path": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-view",
       "version": "2.1.3"
+    },
+    "validate": {
+      "enable": true,
+      "package": "egg-validate",
+      "name": "validate",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/plugin.js",
+      "path": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-validate",
+      "version": "1.1.1"
+    },
+    "bcrypt": {
+      "enable": true,
+      "package": "egg-bcrypt",
+      "name": "bcrypt",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/plugin.js",
+      "path": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-bcrypt",
+      "version": "1.1.0"
+    },
+    "mongoose": {
+      "enable": true,
+      "package": "egg-mongoose",
+      "name": "mongoose",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/plugin.js",
+      "path": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-mongoose",
+      "version": "2.2.1"
+    },
+    "jwt": {
+      "enable": true,
+      "package": "egg-jwt",
+      "name": "jwt",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/plugin.js",
+      "path": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-jwt",
+      "version": "2.2.1"
+    },
+    "cors": {
+      "enable": true,
+      "package": "egg-cors",
+      "name": "cors",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/plugin.js",
+      "path": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-cors",
+      "version": "2.2.3"
     }
   }
 }

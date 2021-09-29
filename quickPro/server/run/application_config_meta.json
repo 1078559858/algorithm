@@ -1,22 +1,9 @@
 {
   "keys": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
-  "news": {
-    "pageSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
-    "serverUrl": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js"
-  },
-  "session": {
-    "maxAge": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
-    "key": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
-    "httpOnly": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
-    "encrypt": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
-    "logValue": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js"
-  },
+  "middleware": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
   "security": {
-    "domainWhiteList": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
-    "protocolWhiteList": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
-    "defaultMiddleware": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
     "csrf": {
-      "enable": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
+      "enable": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
       "type": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
       "ignoreJSON": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
       "useSession": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
@@ -27,6 +14,9 @@
       "queryName": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
       "refererWhiteList": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js"
     },
+    "domainWhiteList": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+    "protocolWhiteList": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
     "xframe": {
       "enable": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js",
       "value": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js"
@@ -66,6 +56,51 @@
       "checkAddress": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js"
     }
   },
+  "multipart": {
+    "fileExtensions": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+    "mode": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "allowArrayField": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
+      "disable": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "bcrypt": {
+    "saltRounds": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js"
+  },
+  "mongoose": {
+    "url": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+    "options": {
+      "useMongoClient": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+      "autoReconnect": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+      "reconnectTries": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+      "bufferMaxEntries": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js"
+    },
+    "loadModel": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-mongoose/config/config.default.js",
+    "app": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-mongoose/config/config.default.js",
+    "agent": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-mongoose/config/config.default.js"
+  },
+  "jwt": {
+    "secret": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+    "enable": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js",
+    "match": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/config/config.default.js"
+  },
+  "session": {
+    "maxAge": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js",
+    "logValue": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-session/config/config.default.js"
+  },
   "helper": {
     "shtml": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-security/config/config.default.js"
   },
@@ -103,24 +138,6 @@
   "schedule": {
     "directory": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-schedule/config/config.default.js"
   },
-  "multipart": {
-    "mode": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "autoFields": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "defaultCharset": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "fieldNameSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "fieldSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "fields": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "fileSize": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "files": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "fileExtensions": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "whitelist": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "allowArrayField": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "tmpdir": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-    "cleanSchedule": {
-      "cron": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js",
-      "disable": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/config/config.default.js"
-    }
-  },
   "development": {
     "watchDirs": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-development/config/config.default.js",
     "ignoreDirs": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-development/config/config.default.js",
@@ -153,6 +170,7 @@
     "defaultViewEngine": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-view/config/config.default.js",
     "mapping": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-view/config/config.default.js"
   },
+  "cors": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-cors/config/config.default.js",
   "env": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
   "name": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
   "cookies": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
@@ -166,18 +184,56 @@
     "name": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
     "version": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
     "description": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
-    "scripts": {
-      "dev": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
-      "test": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
-    },
-    "author": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
-    "license": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+    "private": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
     "dependencies": {
-      "egg": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
+      "await-stream-ready": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-bcrypt": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-cors": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-jwt": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-mongoose": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-scripts": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-validate": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "image-downloader": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "mocha": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "moment": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "stream-to-array": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "stream-wormhole": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
-      "egg-bin": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
-    }
+      "autod": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "autod-egg": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-bin": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-ci": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "egg-mock": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "eslint": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "eslint-config-egg": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "webstorm-disable-index": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
+    },
+    "engines": {
+      "node": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
+    },
+    "scripts": {
+      "start": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "stop": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "dev": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "debug": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "test": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "test-local": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "cov": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "lint": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "ci": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "autod": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
+    },
+    "ci": {
+      "version": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
+    },
+    "repository": {
+      "type": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+      "url": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
+    },
+    "author": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
+    "license": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js"
   },
   "baseDir": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
   "HOME": "/Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg/config/config.default.js",
