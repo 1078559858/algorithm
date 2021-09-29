@@ -28,3 +28,11 @@ nginx常用文件夹：
 > 2. mac可以用scp命令传输公钥和私钥
 
 # 5. 服务端使用egg.js
+
+# 6. mac安装mongodb
+[网站](https://www.runoob.com/mongodb/mongodb-osx-install.html);
+```
+// 查看进程，关闭进程
+$ ps -ef | grep mongo
+$ sudo kill xxxxx
+```

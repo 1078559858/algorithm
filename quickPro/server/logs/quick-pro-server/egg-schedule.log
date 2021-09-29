@@ -1,0 +1,12 @@
+2021-09-28 11:30:26,159 INFO 77573 [Timer] /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/app/schedule/clean_tmpdir.js next time will execute after 61173844ms at 2021-09-29 04:30:00.003
+2021-09-28 11:30:26,160 INFO 77573 [Timer] /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/clean_log.js next time will execute after 44973841ms at 2021-09-29 00:00:00.001
+2021-09-28 11:30:26,160 INFO 77573 [Timer] /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/rotate_by_file.js next time will execute after 44974840ms at 2021-09-29 00:00:01.000
+2021-09-28 11:30:26,023 INFO 77575 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2021-09-28 11:30:26,024 INFO 77575 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/clean_log.js
+2021-09-28 11:30:26,024 INFO 77575 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2021-09-28 11:35:23,206 INFO 77677 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2021-09-28 11:35:23,206 INFO 77677 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/clean_log.js
+2021-09-28 11:35:23,206 INFO 77677 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
+2021-09-28 11:35:24,748 INFO 77680 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-multipart/app/schedule/clean_tmpdir.js
+2021-09-28 11:35:24,748 INFO 77680 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/clean_log.js
+2021-09-28 11:35:24,748 INFO 77680 [egg-schedule]: register schedule /Users/huajiao/Desktop/testProject/github-lw/algorithm/quickPro/server/node_modules/egg-logrotator/app/schedule/rotate_by_file.js
