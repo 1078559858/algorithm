@@ -44,5 +44,13 @@ module.exports = appInfo => {
     match: '/jwt', // optional
   }
 
+  // HTTPS
+  config.cluster = {
+    https: {
+      key: '/usr/local/nginx/cert/ssl.key', // https 证书绝对目录(阿里云服务器地址)
+      cert: '/usr/local/nginx/cert/ssl.pem' // https 证书绝对目录(阿里云服务器地址)
+    }
+  };
+
   return config
 }

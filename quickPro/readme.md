@@ -36,3 +36,39 @@ nginx常用文件夹：
 $ ps -ef | grep mongo
 $ sudo kill xxxxx
 ```
+
+# 7. ubuntu
+1. 无法下载npm
+> ubuntu 版本生命周期到了，需要替换镜像(点击访问网站)[https://www.cocobolo.top/linux/2019/04/26/apt-get%E5%87%BA%E7%8E%B0Err-404-Not-Found%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html]
+> cat /etc/issue  查看ubuntu版本
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak  # 备份原始文件
+sudo sed -i -r 's/([a-z]{2}\.)?archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+sudo sed -i -r 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+sudo apt-get update
+
+# 8. 安装mongo
+```
+#Step 1:  Import the MongoDB public key
+#In Ubuntu 18.*+, you may get invalid signatures. --recv value may need to be updated to EA312927. 
+#See here for more details on the invalid signature issue: [https://stackoverflow.com/questions/34733340/mongodb-gpg-invalid-signatures][1]
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+#Step 2: Generate a file with the MongoDB repository url
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+
+#Step 3: Refresh the local database with the packages
+sudo apt-get update
+
+#Step 4: Install the last stable MongoDB version and all the necessary packages on our system
+sudo apt-get install mongodb-org
+
+         #Or
+# The unofficial mongodb package provided by Ubuntu is not maintained by MongoDB and conflict with MongoDB’s offically supported packages. Use the official MongoDB mongodb-org packages, which are kept up-to-date with the most recent major and minor MongoDB releases.
+sudo apt-get install -y mongodb 
+```
+
+# 9. 出现奇怪的问题
+1. 删除node_modules文件夹
+2. 删除package-lock.json文件
+3. 执行npm install
