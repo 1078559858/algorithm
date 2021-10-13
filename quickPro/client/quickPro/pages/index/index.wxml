@@ -32,5 +32,10 @@
       <button class="random-btn"  bindtap="clickSure">确认</button>
       <input class="random-ipt" type="number" value="{{random.value}}" placeholder="点击确定出现随机数"/>
     </view>
+
+    <view class="random-xhr">
+      <button bindtap="sendRandom">发送随机数</button>
+      <button bindtap="getRandom">获取随机数</button>
+    </view>
   </view>
 </view>

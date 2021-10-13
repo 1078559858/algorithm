@@ -4,6 +4,10 @@ const app = getApp()
 
 Page({
   data: {
+    conf:{
+      url: 'https://www.yangmengmeng.com:7001',
+      port:'7001',
+    },
     motto: '随机数',
     random:{
       min:0,
@@ -94,5 +98,52 @@ Page({
       title:str,
       imageUrl:'/pages/share/shuzi.png'
     }
+  },
+  sendUser:({mobile = "13552972078"}) => {
+    wx.request({
+      url: this.data.conf.url,
+      data: {
+        mobile,
+        password:'123',
+        realName:'235',
+        role:'user',
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+      }
+    })
+  },
+  sendRandom:({mobile, random}) => {
+    wx.request({
+      url: this.data.conf.url,
+      data: {
+        mobile,
+        random
+      },
+      method:'post',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+      }
+    })
+  },
+  getRandom:({mobile}) => {
+    wx.request({
+      url: this.data.conf.url,
+      data: {
+        mobile,
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        this.data.random.value = res.data
+      }
+    })
   }
 })

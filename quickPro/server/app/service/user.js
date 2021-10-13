@@ -110,9 +110,6 @@ class UserService extends Service {
   async findByIdAndUpdate(id, values) {
     return this.ctx.model.User.findByIdAndUpdate(id, values)
   }
-
-  
-
 }
 
 

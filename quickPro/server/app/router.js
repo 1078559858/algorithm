@@ -42,4 +42,8 @@ module.exports = app => {
   router.get('/api/upload', controller.upload.index)
   router.delete('/api/upload', controller.upload.removes)
   // router.resources('upload', '/api/upload', controller.upload)
+
+  // random
+  router.get('/api/random', controller.random.show)
+  router.post('/api/random', controller.random.update)
 }

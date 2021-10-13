@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="step-1">
+        <button>取男</button>
+        <button>留男</button>
+        <button>取女</button>
+        <button>留女</button>
+    </view>
+
+    <view class="user-info">
+        <label>姓名</label>
+        <input type="text"/>
+        <label>身份证</label>
+        <input type="text" />
+        <label>手机号</label>
+        <input type="text" />
+        <label>留言</label>
+        <input type="text" />
+    </view>
+
+    <view>
+        <button>提交</button>
+        <button>返回上一层</button>
+    </view>
+</view>
